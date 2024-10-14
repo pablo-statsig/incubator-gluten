@@ -19,9 +19,9 @@ BUILD_VELOX_BENCHMARKS=OFF
 ENABLE_QAT=OFF
 ENABLE_IAA=OFF
 ENABLE_HBM=OFF
-ENABLE_GCS=OFF
+ENABLE_GCS=ON
 ENABLE_S3=OFF
-ENABLE_HDFS=OFF
+ENABLE_HDFS=ON
 ENABLE_ABFS=OFF
 ENABLE_EP_CACHE=OFF
 ENABLE_VCPKG=OFF
@@ -31,7 +31,7 @@ VELOX_BRANCH=""
 VELOX_HOME=""
 VELOX_PARAMETER=""
 BUILD_ARROW=ON
-SPARK_VERSION=ALL
+SPARK_VERSION=3.5
 
 # set default number of threads as cpu cores minus 2
 if [[ "$(uname)" == "Darwin" ]]; then
@@ -145,7 +145,7 @@ do
         SPARK_VERSION=("${arg#*=}")
         shift # Remove argument name from processing
         ;;
-	      *)
+              *)
         OTHER_ARGUMENTS+=("$1")
         shift # Remove generic argument from processing
         ;;
